@@ -1,0 +1,90 @@
+/* Navbar wrapper */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  background-color: #ffffff; /* professional clean white */
+  font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 1px;
+  padding-left: 50px;
+  color: #1e3a8a; /* deep professional blue */
+}
+
+/* Right side links */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-right: 50px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  color: #f1f5f9;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background: #1e40af;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    padding: 16px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -4px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
