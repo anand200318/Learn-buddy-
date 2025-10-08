@@ -1,18 +1,19 @@
-/* Navbar wrapper */
+/* Enhanced Navbar wrapper */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 32px;
-  background-color: #ffffff; /* professional clean white */
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Logo */
+/* Enhanced Logo */
 .navbar-logo {
   font-size: 28px;
   font-weight: 800;
@@ -20,6 +21,25 @@
   letter-spacing: 1px;
   padding-left: 50px;
   color: #1e3a8a; /* deep professional blue */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-1px);
+  color: #2563eb;
+}
+
+.logo-icon {
+  font-size: 32px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
 }
 
 /* Right side links */
@@ -36,12 +56,35 @@
 }
 
 .nav-link {
-  color: #f1f5f9;
+  color: #64748b;
   text-decoration: none;
   font-weight: 500;
+  font-size: 16px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.4);
+}
+
+.nav-icon {
   font-size: 18px;
-  padding: 8px 14px;
-  border-radius: 8px;
 }
 
 /* Hamburger menu */

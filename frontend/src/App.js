@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import TextToSpeechPage from './pages/text-to-speech';
-import Navbar from './pages/navbar';
+import TextToSpeechPage from './components/features/TextToSpeech';
+import Navbar from './components/common/Navbar';
 import './styles/App.css';
 
 function App() {

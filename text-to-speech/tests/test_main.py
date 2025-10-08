@@ -7,8 +7,8 @@ client = TestClient(app)
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert "status" in response.json()
-    assert response.json()["status"] == "running"
+    assert "message" in response.json()
+    assert "Enhanced Text to Speech API is running" in response.json()["message"]
 
 def test_text_to_speech_empty():
     response = client.post("/tts", data={"text": ""})
