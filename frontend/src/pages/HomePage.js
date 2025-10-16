@@ -22,7 +22,7 @@ function HomePage() {
       </section>
 
       {/* Features Preview */}
-      <section className="features-preview">
+      <section className="features-preview" id="features">
         <h2 className="section-title">What We Offer</h2>
         <div className="features-grid">
           <Link to="/text-to-speech" className="feature-card clickable-card">
@@ -34,14 +34,21 @@ function HomePage() {
             <span className="feature-link">Try Now →</span>
           </Link>
           
-          <div className="feature-card">
+          <Link to="/reading-practice" className="feature-card clickable-card">
             <div className="feature-icon">
               <img src={readingBookIcon} alt="Reading Practice Icon" className="feature-icon" />
             </div>
             <h3>Reading Practice</h3>
             <p>Interactive reading exercises and comprehension</p>
-            <span className="coming-soon">Coming Soon</span>
-          </div>
+            <span className="feature-link">Try Now →</span>
+          </Link>
+          
+          <Link to="/text-simplification" className="feature-card clickable-card">
+            <div className="feature-icon">📝</div>
+            <h3>Text Simplifier</h3>
+            <p>Simplify complex text for better readability</p>
+            <span className="feature-link">Try Now →</span>
+          </Link>
           
           <div className="feature-card">
             <div className="feature-icon">✍️</div>

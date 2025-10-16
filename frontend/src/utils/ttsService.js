@@ -117,9 +117,18 @@ export class TTSService {
   getFallbackVoices() {
     return [
       { id: 'en', name: 'English', language: 'English' },
-      { id: 'es', name: 'Spanish', language: 'Spanish' },
-      { id: 'fr', name: 'French', language: 'French' },
-      { id: 'de', name: 'German', language: 'German' }
+      { id: 'hi', name: 'Hindi', language: 'हिन्दी' },
+      { id: 'kn', name: 'Kannada', language: 'ಕನ್ನಡ' },
+      { id: 'ta', name: 'Tamil', language: 'தமிழ்' },
+      { id: 'te', name: 'Telugu', language: 'తెలుగు' },
+      { id: 'ml', name: 'Malayalam', language: 'മലയാളം' },
+      { id: 'bn', name: 'Bengali', language: 'বাংলা' },
+      { id: 'gu', name: 'Gujarati', language: 'ગુજરાતી' },
+      { id: 'mr', name: 'Marathi', language: 'मराठी' },
+      { id: 'pa', name: 'Punjabi', language: 'ਪੰਜਾਬੀ' },
+      { id: 'es', name: 'Spanish', language: 'Español' },
+      { id: 'fr', name: 'French', language: 'Français' },
+      { id: 'de', name: 'German', language: 'Deutsch' }
     ];
   }
 }
@@ -150,6 +159,54 @@ export class BrowserTTS {
     return voices.find(voice => 
       /en|english/i.test(voice.lang) && /female|male/i.test(voice.name)
     ) || voices.find(voice => /en|english/i.test(voice.lang)) || voices[0] || null;
+  }
+
+  /**
+   * Finds the best voice for a specific language
+   * @param {Array} voices - Available voices
+   * @param {string} languageCode - Language code (e.g., 'hi', 'kn', 'ta')
+   * @returns {Object|null} Best voice for the language or null
+   */
+  findBestVoiceForLanguage(voices, languageCode) {
+    // Language code mappings for browser voices
+    const languageMappings = {
+      'hi': ['hi', 'hindi'],
+      'kn': ['kn', 'kannada'],
+      'ta': ['ta', 'tamil'],
+      'te': ['te', 'telugu'],
+      'ml': ['ml', 'malayalam'],
+      'bn': ['bn', 'bengali', 'bangla'],
+      'gu': ['gu', 'gujarati'],
+      'mr': ['mr', 'marathi'],
+      'pa': ['pa', 'punjabi'],
+      'or': ['or', 'odia', 'oriya'],
+      'as': ['as', 'assamese'],
+      'ur': ['ur', 'urdu'],
+      'es': ['es', 'spanish', 'español'],
+      'fr': ['fr', 'french', 'français'],
+      'de': ['de', 'german', 'deutsch'],
+      'it': ['it', 'italian'],
+      'pt': ['pt', 'portuguese'],
+      'ru': ['ru', 'russian'],
+      'ja': ['ja', 'japanese'],
+      'ko': ['ko', 'korean'],
+      'zh': ['zh', 'chinese', 'mandarin'],
+      'ar': ['ar', 'arabic']
+    };
+
+    const searchTerms = languageMappings[languageCode] || [languageCode];
+    
+    // Try to find a voice that matches the language
+    for (const term of searchTerms) {
+      const voice = voices.find(voice => 
+        voice.lang.toLowerCase().includes(term) || 
+        voice.name.toLowerCase().includes(term)
+      );
+      if (voice) return voice;
+    }
+
+    // Fallback to any available voice
+    return voices[0] || null;
   }
 
   /**

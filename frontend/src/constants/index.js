@@ -4,7 +4,7 @@
 
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: "http://localhost:8002",
+  BASE_URL: "http://localhost:8003",
   ENDPOINTS: {
     TTS: "/tts",
     TTS_CHUNKED: "/tts/chunked",
