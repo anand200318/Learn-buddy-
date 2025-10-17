@@ -1,4 +1,4 @@
-# 🎓 Learn Buddy - Modern Learning Platform
+# 🎓 Learn Buddy - Modern Learning Platform-pull
 
 > **A cutting-edge educational platform built with React and microservices architecture, featuring advanced text-to-speech capabilities with real-time highlighting and interactive learning tools.**
 
