@@ -235,6 +235,7 @@ function ReadingPractice() {
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [availableVoices, setAvailableVoices] = useState([]);
   const [selectedVoice, setSelectedVoice] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Refs
   const timerRef = useRef(null);

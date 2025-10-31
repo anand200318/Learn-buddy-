@@ -23,6 +23,7 @@ import {
   calculateReadabilityScore,
   generateVocabularyCards 
 } from "../../utils/textSimplification";
+import { browserTTS } from "../../utils/ttsService";
 import "../../styles/TextSimplification.css";
 
 // Sample texts for demonstration
