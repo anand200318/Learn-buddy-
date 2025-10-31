@@ -17,14 +17,11 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { ttsService, browserTTS } from "../../utils/ttsService";
 import { 
-  tokenizeText, 
-  calculateReadingTime,
-  analyzeTextComplexity 
+  tokenizeText
 } from "../../utils/textProcessing";
 import { 
   simplifyText, 
-  calculateReadabilityScore,
-  generateVocabularyCards 
+  calculateReadabilityScore
 } from "../../utils/textSimplification";
 import "../../styles/ReadingPractice.css";
 
@@ -220,7 +217,6 @@ function ReadingPractice() {
   const [readingEndTime, setReadingEndTime] = useState(null);
   const [currentWordIndex, setCurrentWordIndex] = useState(-1);
   const [isReading, setIsReading] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
   const [readingSpeed, setReadingSpeed] = useState(200); // WPM
   const [showResults, setShowResults] = useState(false);
   const [progress, setProgress] = useState({
@@ -396,7 +392,7 @@ function ReadingPractice() {
     try {
       // Try using backend TTS for better language support
       if (selectedVoice && selectedLanguage !== 'en') {
-        const chunkedData = await ttsService.getChunkedText({
+        await ttsService.getChunkedText({
           text: textToRead,
           voice: selectedLanguage,
           speed: 0.8,

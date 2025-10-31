@@ -23,7 +23,6 @@ import {
   calculateReadabilityScore,
   generateVocabularyCards 
 } from "../../utils/textSimplification";
-import { ttsService, browserTTS } from "../../utils/ttsService";
 import "../../styles/TextSimplification.css";
 
 // Sample texts for demonstration
@@ -62,17 +61,6 @@ function TextSimplification() {
   const [readingMode, setReadingMode] = useState('original'); // 'original' or 'simplified'
   const [isReading, setIsReading] = useState(false);
 
-  // Auto-analyze text when it changes
-  useEffect(() => {
-    if (inputText.trim().length > 20) {
-      analyzeInputText();
-    } else {
-      setAnalysisResult(null);
-      setSimplifiedText('');
-      setVocabularyCards([]);
-    }
-  }, [inputText]);
-
   // Analyze the input text
   const analyzeInputText = useCallback(async () => {
     if (!inputText.trim()) return;
@@ -98,7 +86,18 @@ function TextSimplification() {
     } finally {
       setIsAnalyzing(false);
     }
-  }, [inputText]);
+  }, [inputText, handleSimplify]);
+
+  // Auto-analyze text when it changes
+  useEffect(() => {
+    if (inputText.trim().length > 20) {
+      analyzeInputText();
+    } else {
+      setAnalysisResult(null);
+      setSimplifiedText('');
+      setVocabularyCards([]);
+    }
+  }, [inputText, analyzeInputText]);
 
   // Simplify text based on selected level
   const handleSimplify = useCallback(() => {

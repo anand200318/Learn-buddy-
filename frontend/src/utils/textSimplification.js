@@ -376,7 +376,7 @@ const generateRecommendations = (readability, complexWordsCount) => {
   return recommendations;
 };
 
-export default {
+const textSimplificationUtils = {
   simplifyText,
   simplifyVocabulary,
   simplifyStructure,
@@ -386,3 +386,5 @@ export default {
   VOCABULARY_SIMPLIFICATIONS,
   PHRASE_SIMPLIFICATIONS
 };
+
+export default textSimplificationUtils;
