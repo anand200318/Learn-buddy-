@@ -4,7 +4,7 @@
 
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: "http://localhost:8003",
+  BASE_URL: process.env.REACT_APP_API_URL || "http://localhost:8003",
   ENDPOINTS: {
     TTS: "/tts",
     TTS_CHUNKED: "/tts/chunked",
